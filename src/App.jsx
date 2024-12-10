@@ -14,7 +14,7 @@ export default function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
-        <Route path="step1" element={<Step1 />} />
+        <Route index element={<Step1 />} />
         <Route path="step2" element={<Step2 />} />
         <Route path="step3" element={<Step3 />} />
         <Route path="step4" element={<Step4 />} />
@@ -22,7 +22,7 @@ export default function App() {
     )
   );
   return (
-    <div className="h-screen w-full bg-slate-700">
+    <div className="h-screen w-full  flex justify-center items-center">
       <RouterProvider router={router} />
     </div>
   );

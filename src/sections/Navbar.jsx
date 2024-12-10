@@ -1,14 +1,40 @@
 import { NavLink } from "react-router-dom";
-
+import { steps } from "../contants/constants";
+console.log(steps);
+import bgDesk from "../assets/images/bgDesk.svg";
 function Navbar() {
   return (
     <>
-      <div>
-        <h1>Routing test</h1>
-        <NavLink to="step1">Step 1</NavLink>
-        <NavLink to="step2">Step 2</NavLink>
-        <NavLink to="step3">Step 3</NavLink>
-        <NavLink to="step4">Step 4</NavLink>
+      <div className="relative flex flex-col items-center justify-center  ">
+        <img src={bgDesk} className="  h-auto" />
+        <div className="flex flex-col  gap-6 absolute top-0 left-0 py-10 px-6">
+          {steps.map((step) => {
+            return (
+              <div key={step.id} className="flex items-center gap-4">
+                <NavLink
+                  to={step.linkTo}
+                  className={({ isActive }) =>
+                    `font-semibold border px-4 py-2 rounded-full ${
+                      isActive
+                        ? "text-Marine-blue bg-Pastel-blue"
+                        : "text-White bg-slate-gray"
+                    }`
+                  }
+                >
+                  {step.id}
+                </NavLink>
+                <div>
+                  <p className="uppercase text-sm text-Cool-gray">
+                    {step.step}
+                  </p>
+                  <p className="uppercase font-semibold text-White">
+                    {step.title}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </>
   );

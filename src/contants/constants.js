@@ -1,3 +1,33 @@
+import iconArcade from "../assets/images/icon-arcade.svg";
+import iconAdvanced from "../assets/images/icon-advanced.svg";
+import iconPro from "../assets/images/icon-pro.svg";
+
+export const selectPlan = [
+  {
+    id: 1,
+    icon: iconArcade,
+    title: "Arcade",
+    priceMonth: "$9/mo",
+    priceYear: "$90/yr",
+    free: "2 months free",
+  },
+  {
+    id: 2,
+    icon: iconAdvanced,
+    title: "Advanced",
+    priceMonth: "$12/mo",
+    priceYear: "$120/yr",
+    free: "2 months free",
+  },
+  {
+    id: 3,
+    icon: iconPro,
+    title: "Pro",
+    priceMonth: "$15/mo",
+    priceYear: "$150/yr",
+    free: "2 months free",
+  },
+];
 export const steps = [
   {
     id: 1,

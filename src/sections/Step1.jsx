@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import NextBtn from "../components/NextBtn";
 
 const Step1 = () => {
   const [formData, setFormData] = useState([]);
@@ -84,12 +85,7 @@ const Step1 = () => {
             onChange={(e) => setNumber(e.target.value)}
           />
         </div>
-        <button
-          className="bg-Marine-blue text-white py-2 rounded-md mt-4 w-max px-2 hover:bg-blue-800 ml-auto"
-          type="submit"
-        >
-          Next Step
-        </button>
+        <NextBtn />
       </form>
     </div>
   );

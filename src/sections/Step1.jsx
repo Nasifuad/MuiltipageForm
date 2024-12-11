@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDitchpatch, useSelector } from "react-redux";
 import NextBtn from "../components/NextBtn";
 
 const Step1 = () => {
@@ -11,6 +12,7 @@ const Step1 = () => {
   const [checkEmail, setCheckEmail] = useState(false);
   const [checkNumber, setCheckNumber] = useState(false);
   const navigate = useNavigate();
+  const ditchpatch = useDitchpatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();

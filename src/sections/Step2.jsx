@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { selectPlan } from "../contants/constants";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 export default function Step2() {
   const [toggle, setToggle] = useState(false);
   const [slected, setSlected] = useState(1);
@@ -14,6 +15,8 @@ export default function Step2() {
     console.log("text");
     navigate("/step3");
   };
+  const sliceData = useSelector((state) => state.formData);
+  console.log(sliceData);
   return (
     <>
       <div className=" p-10 flex flex-col ">

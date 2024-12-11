@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDitchpatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import NextBtn from "../components/NextBtn";
+import { sumbitForm } from "../reducer/FormSlice";
 
 const Step1 = () => {
-  const [formData, setFormData] = useState([]);
+  // const [formData, setFormData] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
@@ -12,7 +13,7 @@ const Step1 = () => {
   const [checkEmail, setCheckEmail] = useState(false);
   const [checkNumber, setCheckNumber] = useState(false);
   const navigate = useNavigate();
-  const ditchpatch = useDitchpatch();
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,10 +22,8 @@ const Step1 = () => {
     name ? setCheckName(false) : setCheckName(true);
     email ? setCheckEmail(false) : setCheckEmail(true);
     number ? setCheckNumber(false) : setCheckNumber(true);
-    setFormData(...formData, { name, email, number });
-    // setName("");
-    // setEmail("");
-    // setNumber("");
+    // setFormData(name);
+    dispatch(sumbitForm({ key: "formData", value: { name, email, number } }));
   };
   return (
     <div className="flex flex-col p-10 gap-4">

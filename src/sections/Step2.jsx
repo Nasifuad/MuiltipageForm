@@ -1,22 +1,30 @@
 import { useState } from "react";
 import { selectPlan } from "../contants/constants";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { sumbitForm } from "../reducer/FormSlice";
 export default function Step2() {
   const [toggle, setToggle] = useState(false);
   const [slected, setSlected] = useState(1);
   const navigate = useNavigate();
+  let dispatch = useDispatch();
+  const sliceData = useSelector((state) => state);
   const handleSelect = (e, id) => {
     e.preventDefault();
     setSlected(id);
   };
   const handleNext = (e) => {
     e.preventDefault();
-    console.log("text");
+    dispatch(
+      sumbitForm({
+        key: "plan",
+        value: toggle ? "yearly" : "monthly",
+      })
+    );
     navigate("/step3");
+    console.log(sliceData);
   };
-  const sliceData = useSelector((state) => state.formData);
-  console.log(sliceData);
+
   return (
     <>
       <div className=" p-10 flex flex-col ">

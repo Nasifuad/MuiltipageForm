@@ -5,7 +5,6 @@ import NextBtn from "../components/NextBtn";
 import { sumbitForm } from "../reducer/FormSlice";
 
 const Step1 = () => {
-  // const [formData, setFormData] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");

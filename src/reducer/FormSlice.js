@@ -1,16 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = {
-  formData: {
-    nama: "Test Case 301",
-    email: "test@123",
-    number: "1234567890",
-    userInfo: {
-      name: "Test Case 301",
-      email: "test@123",
-      number: "1234567890",
-    },
-  },
-};
+const initialState = {};
 
 const FormSlice = createSlice({
   name: "form",
@@ -18,7 +7,7 @@ const FormSlice = createSlice({
   reducers: {
     sumbitForm: (state, action) => {
       const { key, value } = action.payload;
-      state.formData[key] = value;
+      state[key] = value;
     },
   },
 });

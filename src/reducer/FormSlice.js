@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = {};
+const initialState = {
+  formData: {},
+  plan: null,
+  addOns: [],
+};
 
 const FormSlice = createSlice({
   name: "form",

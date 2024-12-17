@@ -18,7 +18,13 @@ export default function Step2() {
     dispatch(
       sumbitForm({
         key: "plan",
-        value: toggle ? "yearly" : "monthly",
+        value: {
+          plan: selectPlan.find((plan) => plan.id === slected).title,
+          price: toggle
+            ? selectPlan.find((plan) => plan.id === slected).priceYear
+            : selectPlan.find((plan) => plan.id === slected).priceMonth,
+          billing: toggle ? "yearly" : "monthly",
+        },
       })
     );
     navigate("/step3");

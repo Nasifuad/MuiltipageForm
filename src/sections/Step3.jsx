@@ -1,13 +1,35 @@
 // import { useState } from "react";
 import { addOns } from "../contants/constants";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { sumbitForm } from "../reducer/FormSlice";
+import { useState } from "react";
+
+// console.log("This is in the step3 ", storeData);
+
 export default function Step3() {
+  const dispatch = useDispatch();
+  const [selected, setSlected] = useState([]);
+  const sliceData = useSelector((state) => state);
+  const billing = sliceData.plan?.billing;
+  console.log("From step 3", sliceData, billing);
   const navigate = useNavigate();
   const handleNext = (e) => {
     e.preventDefault();
-    console.log("text");
-    navigate("/step3");
+    dispatch(sumbitForm({ key: "addOns", value: selected }));
+    navigate("/step4");
   };
+
+  const handleChange = (e) => {
+    const { value, checked } = e.target;
+    const id = Number(value); // Ensure value is a number
+    setSlected((prevSelected) =>
+      checked
+        ? [...prevSelected, id]
+        : prevSelected.filter((item) => item !== id)
+    );
+  };
+
   return (
     <>
       <div className=" p-10 flex flex-col ">
@@ -20,19 +42,50 @@ export default function Step3() {
             {addOns.map((add) => {
               return (
                 <div
-                  className="flex justify-between border-Cool-gray border p-4 rounded-lg"
+                  className={`flex justify-between ${
+                    selected.includes(add.id)
+                      ? "border-2 border-blue-800"
+                      : "border border-Cool-gray"
+                  } p-4 rounded-lg`}
                   key={add.id}
                 >
-                  <div className="flex gap-4 justify-center items-center">
-                    <input type="checkbox" />
+                  <label className="flex gap-4 items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      onChange={(e) => handleChange(e)}
+                      value={add.id}
+                      className="peer hidden"
+                    />
+                    <span
+                      className="w-6 h-6 border-2 border-Cool-gray rounded-md flex justify-center items-center 
+                               peer-checked:bg-blue-500 peer-checked:border-none"
+                    >
+                      {/* Optional checkmark icon */}
+                      {selected.includes(add.id) && (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      )}
+                    </span>
                     <div>
                       <p className="font-bold text-Marine-blue">{add.value}</p>
                       <p className="font-ubuntu text-sm text-Cool-gray">
                         {add.desc}
                       </p>
                     </div>
-                  </div>
-                  <p>+${add.price}/yr</p>
+                  </label>
+                  <p>{billing === "yearly" ? add.priceYear : add.priceMonth}</p>
                 </div>
               );
             })}

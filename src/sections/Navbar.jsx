@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { steps } from "../contants/constants";
 console.log(steps);
-import bgDesk from "../assets/images/bgDesk.svg";
+
 function Navbar() {
   return (
     <>
       <div className="relative flex flex-col items-center justify-center  ">
-        <img src={bgDesk} className="  h-auto" />
-        <div className="flex flex-col  gap-6 absolute top-0 left-0 py-10 px-6">
+        {/* <img src={bgDesk} className="  h-auto" /> */}
+        <div className="flex flex-col  gap-6 py-20 px-6 bg-desk  bg-cover bg-center bg-no-repeat ">
           {steps.map((step) => {
             return (
               <div key={step.id} className="flex items-center gap-4">

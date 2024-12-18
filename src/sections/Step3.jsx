@@ -16,7 +16,8 @@ export default function Step3() {
   const navigate = useNavigate();
   const handleNext = (e) => {
     e.preventDefault();
-    dispatch(sumbitForm({ key: "addOns", value: selected }));
+    const selectedAddOns = addOns.filter((add) => selected.includes(add.id));
+    dispatch(sumbitForm({ key: "addOns", value: selectedAddOns }));
     navigate("/step4");
   };
 

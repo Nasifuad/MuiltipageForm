@@ -8,11 +8,12 @@ export default function Step4() {
   console.log("From Confirm this is the final data !!!", sliceData);
   const handleConfirm = (e) => {
     e.preventDefault();
+    navigate("/step5");
   };
 
   return (
     <>
-      <div className=" flex flex-col p-10 gap-4  w-full sm:translate-y-[-50px] bg-white ">
+      <div className=" flex flex-col p-10 gap-4   sm:translate-y-[-50px] bg-white ">
         <div>
           <h1 className="text-3xl font-bold font-ubuntu">Finishing Up</h1>
           <p className=" text-Cool-gray w-full">

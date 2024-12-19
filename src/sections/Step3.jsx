@@ -33,13 +33,13 @@ export default function Step3() {
 
   return (
     <>
-      <div className=" flex flex-col p-10 gap-4  w-full sm:translate-y-[-50px] bg-white ">
-        <div>
+      <div className=" flex flex-col p-10 gap-4   sm:translate-y-[-50px] bg-white  ">
+        <div className="w-full">
           <h1 className="text-3xl font-bold font-ubuntu">Select Your Plan</h1>
           <p className=" text-Cool-gray w-full">
             You have the option of monthly or yearly billing
           </p>
-          <div className="mt-6 flex flex-col justify-between w-full gap-2">
+          <div className="mt-6 flex flex-col justify-between  gap-2">
             {addOns.map((add) => {
               return (
                 <div
@@ -118,7 +118,7 @@ export default function Step3() {
             </p>
           </div> */}
         </div>
-        <div className="mt-auto w-full justify-between flex">
+        <div className="mt-auto l justify-between flex">
           <button
             className="font-bold text-Marine-blue"
             onClick={() => navigate("/")}

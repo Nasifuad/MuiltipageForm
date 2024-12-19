@@ -21,7 +21,8 @@ export default function App() {
         <Route path="step4" element={<Step4 />} />
         <Route path="step5" element={<Step5 />} />
       </Route>
-    )
+    ),
+    { basename: "/MultiPageForm/" } // Add the basename here
   );
   return (
     <div className="h-screen w-full  flex justify-center items-center">

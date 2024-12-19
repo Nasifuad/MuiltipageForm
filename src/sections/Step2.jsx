@@ -33,19 +33,19 @@ export default function Step2() {
 
   return (
     <>
-      <div className=" flex flex-col p-10 gap-4   sm:translate-y-[-50px] bg-white ">
+      <div className=" flex flex-col p-10 gap-4   sm:translate-y-[-50px] bg-white  ">
         <div>
           <h1 className="text-3xl font-bold font-ubuntu">Select Your Plan</h1>
           <p className=" text-Cool-gray w-full">
             You have the option of monthly or yearly billing
           </p>
-          <div className="mt-6 flex justify-between w-full gap-2">
+          <div className="mt-6 flex justify-between w-full gap-2 xl:flex-row flex-col ">
             {selectPlan.map((plan) => {
               return (
                 <div
                   onClick={(e) => handleSelect(e, plan.id)}
                   key={plan.id}
-                  className={`flex flex-col  rounded border border-slate-gray  items-start w-[140px] p-4 hover:border-Marine-blue hover:scale-105 transition-al
+                  className={`flex xl:flex-col  rounded border border-slate-gray gap-2 items-start xl:w-[140px] p-4  w-full flex-row hover:border-Marine-blue hover:scale-105 transition-al
                     ${plan.id === slected && "border-Marine-blue"}
                     `}
                 >
@@ -55,7 +55,7 @@ export default function Step2() {
                     width={50}
                     height={50}
                   />
-                  <div className="mt-10">
+                  <div className="xl:mt-10">
                     <p className="font-semibold font-ubuntu text-Marine-blue">
                       {plan.title}
                     </p>

@@ -5,7 +5,7 @@ console.log(steps);
 function Navbar() {
   return (
     <>
-      <div className="relative flex xl:flex-col   ">
+      <div className="relative flex xl:flex-col w-full xl:w-max justify-center items-center   ">
         {/* <img src={bgDesk} className="  h-auto" /> */}
         <div className="flex xl:flex-col  xl:gap-6 py-20 px-6 xl:bg-desk bg-mob  bg-center bg-contain   xl:bg-cover xl:bg-center bg-no-repeat justify-center w-full gap-3">
           {steps.map((step) => {

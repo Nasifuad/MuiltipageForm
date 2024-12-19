@@ -25,7 +25,7 @@ export default function Step4() {
           <div className="flex justify-between bg-gray-100 p-3 rounded-lg">
             <div>
               <h1 className="font-ubuntu font-bold text-Marine-blue">
-                Arcade (Monthly)
+                {sliceData.plan.plan}
               </h1>
               <NavLink to="/step2" className="underline text-Cool-gray font-sm">
                 {" "}
@@ -33,23 +33,31 @@ export default function Step4() {
               </NavLink>
             </div>
 
-            <p className="font-ubuntu text-Marine-blue font-semibold"> $9 mo</p>
+            <p className="font-ubuntu text-Marine-blue font-semibold">
+              {" "}
+              {sliceData.plan.price}
+            </p>
           </div>
           <div className="flex flex-col justify-between bg-gray-100 p-3 rounded-lg gap-2">
-            <div className="flex justify-between">
-              <p className="text-Cool-gray text-sm ">Online service</p>
-              <p className="font-semibold text-sm ">$ 1 Mo</p>
-            </div>
-
-            <div className="flex justify-between">
-              <p className="text-Cool-gray text-sm ">Larger storage</p>
-              <p className="font-semibold text-sm ">$ 2 Mo</p>
-            </div>
+            {sliceData.addOns.map((add) => {
+              return (
+                <>
+                  <div key={add.id} className="flex justify-between">
+                    <p className="text-Cool-gray text-sm ">{add.value}</p>
+                    <p className="font-semibold text-sm ">
+                      {sliceData.plan.billing == "yearly"
+                        ? add.priceYear
+                        : add.priceMonth}
+                    </p>
+                  </div>
+                </>
+              );
+            })}
           </div>
           <div className="flex justify-between mt-2">
             <p className="text-Cool-gray text-sm">Total (per month)</p>
             <p className="font-semibold text-lg font-ubuntu text-blue-900">
-              $12/mo
+              {sliceData.plan.price}
             </p>
           </div>
         </div>

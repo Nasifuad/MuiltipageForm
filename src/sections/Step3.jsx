@@ -33,7 +33,7 @@ export default function Step3() {
 
   return (
     <>
-      <div className=" p-10 flex flex-col ">
+      <div className=" flex flex-col p-10 gap-4  w-full sm:translate-y-[-50px] bg-white ">
         <div>
           <h1 className="text-3xl font-bold font-ubuntu">Select Your Plan</h1>
           <p className=" text-Cool-gray w-full">

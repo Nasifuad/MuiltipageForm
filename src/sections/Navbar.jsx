@@ -5,12 +5,12 @@ console.log(steps);
 function Navbar() {
   return (
     <>
-      <div className="relative flex flex-col items-center justify-center  ">
+      <div className="relative flex xl:flex-col items-center justify-center   ">
         {/* <img src={bgDesk} className="  h-auto" /> */}
-        <div className="flex flex-col  gap-6 py-20 px-6 bg-desk  bg-cover bg-center bg-no-repeat ">
+        <div className="flex xl:flex-col  xl:gap-6 py-20 px-6 xl:bg-desk bg-mob  bg-center bg-contain   xl:bg-cover xl:bg-center bg-no-repeat justify-center w-full gap-3">
           {steps.map((step) => {
             return (
-              <div key={step.id} className="flex items-center gap-4">
+              <div key={step.id} className="flex items-center xl:gap-4">
                 <NavLink
                   to={step.linkTo}
                   className={({ isActive }) =>
@@ -23,7 +23,7 @@ function Navbar() {
                 >
                   {step.id}
                 </NavLink>
-                <div>
+                <div className="hidden xl:block">
                   <p className="uppercase text-sm text-Cool-gray">
                     {step.step}
                   </p>

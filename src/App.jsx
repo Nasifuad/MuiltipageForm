@@ -8,7 +8,8 @@ import {
 import Step1 from "./sections/Step1";
 import Step2 from "./sections/Step2";
 import Step3 from "./sections/Step3";
-import Step4 from "./sections/step4";
+import Step4 from "./sections/Step4";
+import Step5 from "./sections/step5";
 
 export default function App() {
   const router = createBrowserRouter(
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="step2" element={<Step2 />} />
         <Route path="step3" element={<Step3 />} />
         <Route path="step4" element={<Step4 />} />
+        <Route path="step5" element={<Step5 />} />
       </Route>
     )
   );

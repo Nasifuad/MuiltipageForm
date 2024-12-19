@@ -25,7 +25,7 @@ const Step1 = () => {
     dispatch(sumbitForm({ key: "formData", value: { name, email, number } }));
   };
   return (
-    <div className="flex flex-col p-10 gap-4">
+    <div className="flex flex-col p-10 gap-4  sm:translate-y-[-50px] bg-white">
       <div>
         <h1 className="text-3xl font-bold text-Marine-blue font-ubuntu">
           Personal info
